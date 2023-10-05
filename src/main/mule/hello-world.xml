@@ -18,13 +18,13 @@ output application/json
   </flow>
   <flow name="empty1" doc:id="340ee6ed-dd82-4d1f-acd6-e4354995a4ac">
     <logger level="INFO" doc:name="Logger" doc:id="04e4a059-4dda-4a4a-8252-64a180ddd9a8" message="Message" />
-    <set-variable value="demoUser" doc:name="Set Variable" doc:id="aaf70a51-86ec-42da-9adb-5e3442c938fa" variableName="userName" />
-    <flow-ref doc:name="Flow Reference" doc:id="f83c62e1-85a2-4e72-927f-08dd50475d21" name="empty2" />
+    <set-variable value="demoUser" doc:name="userName" doc:id="aaf70a51-86ec-42da-9adb-5e3442c938fa" variableName="userName" />
+    <flow-ref doc:name="empty2" doc:id="f83c62e1-85a2-4e72-927f-08dd50475d21" name="empty2" />
   </flow>
-  <flow name="pmcaTestingBad" doc:id="35e0e63c-644a-45f9-9990-08baeb239576">
+  <flow name="pmca-testing-bad" doc:id="35e0e63c-644a-45f9-9990-08baeb239576">
     <logger level="INFO" doc:name="Logger" doc:id="847a491c-4ec8-4ecc-bcfb-6c0a9bfc438f" message="Message" />
   </flow>
-  <sub-flow name="subPmcaTestingBad" doc:id="b5710902-9517-4ffe-828e-b0d8738047e5">
+  <sub-flow name="sub-pmca-testing-bad" doc:id="b5710902-9517-4ffe-828e-b0d8738047e5">
     <logger level="INFO" doc:name="Logger" doc:id="c25f0f41-a251-4ba1-86e0-d73a36bd8e29" message="Message" />
   </sub-flow>
 </mule>
