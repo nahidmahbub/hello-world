@@ -1,38 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
-	xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a507a699-fdeb-40a4-ba50-396ba937a7ef" >
-		<http:listener-connection host="0.0.0.0" port="8083"/>
-	</http:listener-config>
-	<flow name="hello-worldFlow" doc:id="417828fb-36a2-4a32-a3eb-80e34c3bd5cf" >
-		<http:listener doc:name="Listener" doc:id="c6a89bc3-077b-45d9-b7a7-0060381fcd05" config-ref="HTTP_Listener_config" path="/demo"/>
-		<ee:transform doc:name="Transform Message" doc:id="813cd28e-ee95-4227-9613-e760a209a525" >
-			<ee:message >
-				<ee:set-payload ><![CDATA[%dw 2.0
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+  <http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a507a699-fdeb-40a4-ba50-396ba937a7ef">
+    <http:listener-connection host="0.0.0.0" port="8083" />
+  </http:listener-config>
+  <flow name="hello-worldFlow" doc:id="417828fb-36a2-4a32-a3eb-80e34c3bd5cf">
+    <http:listener doc:name="Listener" doc:id="c6a89bc3-077b-45d9-b7a7-0060381fcd05" config-ref="HTTP_Listener_config" path="/demo" />
+    <ee:transform doc:name="Transform Message" doc:id="813cd28e-ee95-4227-9613-e760a209a525">
+      <ee:message>
+        <ee:set-payload><![CDATA[%dw 2.0
 output application/json
 ---
 {
 	"message": "Hello world"
 }]]></ee:set-payload>
-			</ee:message>
-		</ee:transform>
-	</flow>
-
-<flow name="empty1" doc:id="340ee6ed-dd82-4d1f-acd6-e4354995a4ac">
+      </ee:message>
+    </ee:transform>
+  </flow>
+  <flow name="empty1" doc:id="340ee6ed-dd82-4d1f-acd6-e4354995a4ac">
     <logger level="INFO" doc:name="Logger" doc:id="04e4a059-4dda-4a4a-8252-64a180ddd9a8" message="Message" />
     <set-variable value="demoUser" doc:name="Set Variable" doc:id="aaf70a51-86ec-42da-9adb-5e3442c938fa" variableName="userName" />
-<flow-ref doc:name="Flow Reference" doc:id="f83c62e1-85a2-4e72-927f-08dd50475d21" name="empty2"/>
+    <flow-ref doc:name="Flow Reference" doc:id="f83c62e1-85a2-4e72-927f-08dd50475d21" name="empty2" />
   </flow>
-    <flow name="pmcaTestingBad" doc:id="35e0e63c-644a-45f9-9990-08baeb239576">
-        <logger level="INFO" doc:name="Logger" doc:id="847a491c-4ec8-4ecc-bcfb-6c0a9bfc438f" message="Message" />
-    </flow>
-	<sub-flow name="subPmcaTestingBad" doc:id="b5710902-9517-4ffe-828e-b0d8738047e5">
-        <logger level="INFO" doc:name="Logger" doc:id="c25f0f41-a251-4ba1-86e0-d73a36bd8e29" message="Message" />
-    </sub-flow>
-    
- </mule>
-
+  <flow name="pmcaTestingBad" doc:id="35e0e63c-644a-45f9-9990-08baeb239576">
+    <logger level="INFO" doc:name="Logger" doc:id="847a491c-4ec8-4ecc-bcfb-6c0a9bfc438f" message="Message" />
+  </flow>
+  <sub-flow name="subPmcaTestingBad" doc:id="b5710902-9517-4ffe-828e-b0d8738047e5">
+    <logger level="INFO" doc:name="Logger" doc:id="c25f0f41-a251-4ba1-86e0-d73a36bd8e29" message="Message" />
+  </sub-flow>
+</mule>
