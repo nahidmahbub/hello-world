@@ -30,6 +30,22 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 			</plugin>
+            <plugin>
+                <groupId>com.plektonlabs.pmca</groupId>
+                <artifactId>pmca-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <!-- First execution executing jmeter-maven-plugin -->
+                    <execution>
+                        <id>ExecutePMCA</id>
+                        <goals>
+                            <goal>pmcaExecutor</goal>
+                        </goals>
+                        <phase>compile</phase>
+                    </execution>
+                    </executions>
+            </plugin>
+
 		</plugins>
 	</build>
 
