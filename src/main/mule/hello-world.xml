@@ -3,7 +3,7 @@
   <http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a507a699-fdeb-40a4-ba50-396ba937a7ef">
     <http:listener-connection host="0.0.0.0" port="8083" />
   </http:listener-config>
-  <flow name="hello-worldFlow" doc:id="417828fb-36a2-4a32-a3eb-80e34c3bd5cf">
+  <flow name="helloworldFlow" doc:id="417828fb-36a2-4a32-a3eb-80e34c3bd5cf">
     <http:listener doc:name="Listener" doc:id="c6a89bc3-077b-45d9-b7a7-0060381fcd05" config-ref="HTTP_Listener_config" path="/demo" />
     <ee:transform doc:name="Transform Message" doc:id="813cd28e-ee95-4227-9613-e760a209a525">
       <ee:message>
